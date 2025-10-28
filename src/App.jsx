@@ -1,7 +1,8 @@
 import { useState } from "react";
 import NavBar from "./Navbar";
-import MainContent from "./MainContent";
 import Products from "./Products";
+import MainContent from "./MainContent";
+import BackgroundColor from "./BackgroundColor";
 import AvatarImage from "../src/assets/ecommerce-product-page-main/images/image-avatar.png";
 import productImage1 from "../src/assets/ecommerce-product-page-main/images/image-product-1.jpg";
 import productImage2 from "../src/assets/ecommerce-product-page-main/images/image-product-1-thumbnail.jpg";
@@ -9,16 +10,17 @@ import productImage3 from "../src/assets/ecommerce-product-page-main/images/imag
 import productImage4 from "../src/assets/ecommerce-product-page-main/images/image-product-3-thumbnail.jpg";
 import productImage5 from "../src/assets/ecommerce-product-page-main/images/image-product-4-thumbnail.jpg";
 
+
 const App = () => {
   const [cartCount, setCartCount] = useState(0);
 
   return (
-    <div className="min-h-screen bg-[#0f0f0f] text-white">
-     
-      <NavBar cartCount={cartCount} setCartCount={setCartCount} imgAvatar={AvatarImage} />
+    <BackgroundColor>
+      <NavBar      cartCount={cartCount}
+        setCartCount={setCartCount}
+        imgAvatar={AvatarImage}/>
 
-   
-      <main className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-10 mt-28 px-4 sm:px-10 lg:px-20">
+      <main className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-10 mt-28 px-4 sm:px-8 lg:px-20 w-full max-w-[1400px] mx-auto">
         <Products
           img1={productImage1}
           img2={productImage2}
@@ -28,7 +30,7 @@ const App = () => {
         />
         <MainContent cartCount={cartCount} setCartCount={setCartCount} />
       </main>
-    </div>
+    </BackgroundColor>
   );
 };
 
